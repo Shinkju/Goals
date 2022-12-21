@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllTodo">
+		SELECT
+				BUCKET_CODE
+			  , CONTENT
+			  , CATEGORY_CODE
+			  , COFIG_DATE
+			  , SUCCESS_DATE
+		  FROM TBL_BUCKET
+		  WHERE CATEGORY_CODE = 1
+	</entry>
+
+
+</properties>
