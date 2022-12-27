@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 	<script>
+	
 		function colorChange(){
 			var co = document.getElementById("color");
 			
@@ -15,6 +16,7 @@
 				co.style.borderColor = "white"
 			}
 		}
+		
 	</script>
 
 	<!-- style 영역 -->
@@ -32,7 +34,10 @@
 			width: 650px; height: 130px; background-color: white; border-radius: 10px; margin-left: 31%; margin-top: 80px;
 		}
 		h1 {
-			padding-top: 35px;
+			padding-top: 35px; cursor: pointer;
+		}
+		h1:hover {
+			text-decoration: underline; color: #7B85E4; cursor: pointer;
 		}
 		.nav {
 			width: 1100px; height: 115px; background-color: white; border-radius: 10px; margin-left: 20%; margin-top: 55px;
@@ -40,14 +45,14 @@
 		ul {
 			display: flex;
 		}
-		a {
+		.navA {
 			text-decoration: none; font-size: 30px; margin-left: 170px; padding-top: 45px; color: black;
 		}
-		a:hover {
-			text-decoration: underline; color: #7B85E4;
+		.navA:hover {
+			text-decoration: underline; color: #7B85E4; cursor: pointer;
 		}
 		.bodyInfo {
-			width: 1100px; height: 120px; background-color: white; border-radius: 10px; margin-top: 55px; margin-left: 20%;
+			width: 1300px; height: 120px; background-color: white; border-radius: 10px; margin-top: 55px; margin-left: 15%; border: 2px solid black;
 		}
 		td {
 			font-size: 30px; padding-right: 58px;
@@ -65,7 +70,7 @@
 		<div class="headInfo">
 			<div>
 				<div>
-					<h1>무엇 이요?!</h1>
+					<h1 onclick="location.href='${ pageContext.servletContext.contextPath }/todo/insertDo'">무엇 이요?!</h1>
 				</div>
 			</div>
 			<div>
@@ -75,9 +80,9 @@
 		
 		<div class="nav">
 			<ul>
-				<a href="#">하고 싶어요</a>
-				<a href="#">갖고 싶어요</a>
-				<a href="#">가고 싶어요</a>
+				<a class="navA" onclick="location.href='${ pageContext.servletContext.contextPath }/todo/list'">하고 싶어요</a>
+				<a class="navA" onclick="location.href='${ pageContext.servletContext.contextPath }/todo/take'">갖고 싶어요</a>
+				<a class="navA" onclick="location.href='${ pageContext.servletContext.contextPath }/todo/go'">가고 싶어요</a>
 			</ul>
 		</div>
 		
@@ -85,9 +90,6 @@
 		
 		<table class="bodyInfo">
 			<c:forEach items="${ requestScope.todoList }" var="todo">
-			<!-- 오늘날짜, db날짜 포맷팅 -->
-			<%-- <jsp:useBean id="toDay" class="java.util.Date"/>
-			<fmt:parseNumber value="${ toDay.time / (1000*60*60*24) }" integerOnly="true" var="today" scope="request"/> --%>
 			<tr>
 				<td>${ todo.content }</td>
 				<td>${ todo.cofigDate }</td>

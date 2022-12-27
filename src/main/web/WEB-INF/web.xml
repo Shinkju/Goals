@@ -19,4 +19,14 @@
   	<param-value>/WEB-INF/mapper/</param-value>
   </context-param>
   
+  
+  <servlet>
+  	<servlet-name>insertDo</servlet-name>
+  	<servlet-class>com.ambition.mvc.bucket.controller.insertTodoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>insertDo</servlet-name>
+  	<url-pattern>/insertDo</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

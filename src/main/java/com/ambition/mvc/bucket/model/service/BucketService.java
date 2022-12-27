@@ -26,5 +26,33 @@ public class BucketService {
 		
 		return todoList;
 	}
+	
+	
+	
+	
+	/* todoList 등록 */
+	public int insertTodo(BucketDto bucket) {
+		
+		Connection conn = getConnection();
+		
+		int result = bucketDao.insertTodo(conn, bucket);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+
+	
+
+	
+
+	
+	
+	
 
 }

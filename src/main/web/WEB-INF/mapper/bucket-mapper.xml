@@ -11,6 +11,22 @@
 		  FROM TBL_BUCKET
 		  WHERE CATEGORY_CODE = 1
 	</entry>
+	
+	<!-- <entry key="insertTodo">
+		INSERT 
+		  INTO TBL_BUCKET
+			(
+				BUCKET_SEQ.NEXTVAL
+			  ,	CONTENT
+			  , COFIG_DATE
+			  , CATEGORY_CODE
+			)
+			(
+				?
+			  , ?
+			  , ?
+			)
+	</entry> -->
 
 
 </properties>

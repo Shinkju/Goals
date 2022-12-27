@@ -18,6 +18,7 @@ public class SelectAllTodoServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
 		BucketService bucketService = new BucketService();
 		List<BucketDto> todoList = bucketService.selectAllTodoBucket();
 		

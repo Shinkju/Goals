@@ -1,6 +1,6 @@
 package com.ambition.mvc.bucket.model.dao;
 
-import static com.ambition.mvc.common.jdbc.JDBCTemplate.*;
+import static com.ambition.mvc.common.jdbc.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,7 +37,7 @@ public class BucketDao {
 
 	
 	
-	//todoList ��ȸ
+	//todoList 조회
 	public List<BucketDto> selectAllTodoList(Connection conn) {
 		
 		PreparedStatement pstmt = null;
@@ -70,6 +70,41 @@ public class BucketDao {
 		
 		return todoList;
 	}
+	
+	
+
+
+	//todoList 등록
+	public int insertTodo(Connection conn, BucketDto bucket) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertTodo");
+		
+		
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, bucket.getContent());
+			pstmt.setDate(2, bucket.getCofigDate());
+			pstmt.setLong(3, bucket.getCategory().getCategoryCode());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(conn);
+		}
+		
+		return result;
+	}
+
+
+
+	
 	
 	
 	
